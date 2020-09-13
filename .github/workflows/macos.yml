@@ -52,6 +52,10 @@ jobs:
         with:
           name: ${{ matrix.cachixName }}
           signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
+      - uses: actions/cache@v2
+        with:
+          path: /nix/store
+          key: ${{ runner.os }}-nix
       - name: Build nix packages
         # TODO switch to default nixpkgs channel once nix-build-uncached 1.0.0 is in stable
         # run: NIXPKGS_ALLOW_INSECURE=1 nix run -I 'nixpkgs=channel:nixos-unstable' nixpkgs.nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
