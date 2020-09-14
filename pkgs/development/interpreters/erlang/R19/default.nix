@@ -4,7 +4,7 @@
 let
   compile_fails = if builtins.currentSystem == "x86_64-linux" then
   # ../bin/diameterc: /usr/bin/env: bad interpreter: No such file or directory
-    [ ./R19.0.nix ]
+    [ ]
   else
     [ ];
 
